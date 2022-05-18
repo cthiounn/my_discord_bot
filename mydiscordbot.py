@@ -25,10 +25,17 @@ async def on_ready():
 
 @bot.command()
 async def echo(ctx, *arg):
+    channel = bot.get_channel(976233370814120009)
     if not ctx.author.bot:
-        await ctx.channel.send(arg[0])
+        await channel.send(arg[0])
     return
 
+@bot.command()
+async def echo_ping(ctx, *arg):
+    channel = bot.get_channel(976233370814120009)
+    if not ctx.author.bot:
+        await channel.send(f"<@{arg[0]}> {arg[1]}")
+    return
 
 # @bot.command()
 # async def somme(ctx, *arg):
